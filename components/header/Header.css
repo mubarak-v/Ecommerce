@@ -1,0 +1,46 @@
+
+.form-control {
+width: 300px !important;
+height: 40px;
+}
+
+
+#header-logo{
+    height: 30px;
+}
+.navbar{
+}
+.navbar-nav{
+    display: flex !important;
+    margin-left: 15px;
+    
+    justify-content: center !important;
+    align-items: center !important;
+
+}
+#search{
+
+}
+.search-input{
+    display: flex;
+}
+.custom-button  {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 18px !important;
+  padding: 10px 10px !important;
+  font-weight: 600 !important;
+
+ 
+ 
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.margin-5{
+    margin-left: 5px;
+
+}
+
+
+
+
