@@ -12,6 +12,7 @@ function BestOffer() {
   const { dispatch, productList } = useContext(StoreContext);
 
   const handleAddToCart = (product) => {
+    
     dispatch({ type: "ADD_TO_CART", payload: product });
 
 
@@ -63,10 +64,12 @@ function BestOffer() {
               (product.price - (product.price / 100) * product.offer) * 84
             )}
           </p>
+          <span style={{backgroundColor:"red",marginTop:"5px"}}>{}</span>
+          
         </div>
       </div>
       <div style={{ marginBottom: "20px" }}>
-        {" "}
+     
         <div
           onClick={() => handleAddToCart(product)}
           className="btn btn-primary"

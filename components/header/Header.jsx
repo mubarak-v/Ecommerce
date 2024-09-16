@@ -14,7 +14,7 @@ function Header() {
       <img  id="header-logo" src="components/header/img/DDLOGO.jpg" alt="" />
      
       <form id="search" className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <input id="search-btn" className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-dark" type="submit">Search</button>
           </form>
         {/* <a className="navbar-brand" href="#">Navbar</a> */}
@@ -24,9 +24,14 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul id="header-btn" className="navbar-nav  me-auto mb-2 mb-lg-0 ">
           <FontAwesomeIcon  icon={faCartShopping} />
+          
             <li className="nav-item margin-5">
             
-              <a className="nav-link active custom-button " aria-current="page" href="/Cart">Cart</a>
+              <a className="nav-link active custom-button " aria-current="page" href="/Cart">
+              Cart</a>
+              
+
+
             </li>
             <FontAwesomeIcon icon= {faHouse} />
             <li className="nav-item margin-5">
@@ -37,7 +42,7 @@ function Header() {
             <FontAwesomeIcon icon={faUser} />
             <li className="nav-item margin-5">
            
-              <a className="nav-link active custom-button" href="#">Login</a>
+              <a className="nav-link active custom-button" href="/login">Login</a>
             </li>
 
 
@@ -52,41 +57,6 @@ function Header() {
       </div>
       
     </nav>
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-
-
-
-
-
 
 
 

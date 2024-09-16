@@ -15,7 +15,7 @@ const handleRemoveToCart = (id)=>{
 
 useEffect(()=>{
     let total = 0
-    cart.forEach(p => total += p.price)
+    cart.forEach(p => total += p.price*p.quantity)
     setPrice(parseInt(total, 10))
 
 },[cart])
@@ -34,21 +34,21 @@ if(cart.length===0){
   console.log(cart);
 
   const cartItems = cart.map((p) => (
-    <>
-      <div className="cart-item row align-items-center">
+  
+      <div key={p.id} className="cart-item row align-items-center">
         <div className="col-md-2">
           <img src={p.image} alt="black shirt" />
         </div>
         <div className="col-md-6 item-details">
           <p> {p.title} </p>
-          {/* <span className="text-muted">Black | M | Qty: 1</span> */}
+          <span className="text-muted"> Qty: {p.quantity} </span>
         </div>
         <div className="col-md-2 text-end item-price"> {p.price} </div>
         <div className="col-md-2 text-end">
           <button onClick={()=>handleRemoveToCart(p.id)} className="btn btn-outline-danger btn-sm">Remove</button>
         </div>
       </div>
-    </>
+    
   ));
 
   return (

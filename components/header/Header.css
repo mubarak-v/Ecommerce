@@ -11,11 +11,19 @@ height: 40px;
 .navbar{
 position: relative;
 background-color: white;
-margin-top: 15px;
+
+align-items: center;
+height: 55px;
+}
+
+#search-btn{
+    height: 40px;
 }
 .navbar-nav{
     display: flex !important;
     margin-left: 15px;
+    height: 55px;
+
     
     justify-content: center !important;
     align-items: center !important;
@@ -70,6 +78,8 @@ margin-left: 750px;
 }
 #search{
     margin-left: 30px !important;
+    height: px;
+    
 
 }
 .search-input{

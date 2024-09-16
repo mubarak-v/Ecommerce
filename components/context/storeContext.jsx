@@ -1,19 +1,37 @@
 import { createContext, useEffect, useReducer, useState } from "react";
-import ProductList from '../productList/ProductList';
+
 const StoreContext = createContext();
 const initialState = {
   cart: JSON.parse(localStorage.getItem("cart")) || [],
+  
 };
 
 const cartReducer = (state, action) => {
   switch (action.type) {
     
     case "ADD_TO_CART":
-console.log(action.payload)
+    {
+      let alreadyAdded = false;
+      let newcart = [];
+      state.cart.forEach((item) => {
+        if (item.id === action.payload.id) {
+          alreadyAdded = true;
+          item.quantity++;
+        }
+        newcart.push(item);
+
+       
+      });
+      if (!alreadyAdded) {
+        newcart.push({...action.payload, quantity: 1 });
+      }
       return {
-        
-        cart: [...state.cart, action.payload],
+
+        cart: newcart,
       };
+
+    }
+     
     case "REMOVE_FROM_CART":
 
 
