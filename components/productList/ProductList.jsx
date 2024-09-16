@@ -1,28 +1,24 @@
 import { useContext, useEffect, useState } from "react";
+import { ProductContext } from "../context/contextData";
 
 function ProductList() {
-    const [products, setproduct] = useState([]);
-    useEffect(() => {
-      const Products = async () => {
-        try {
-          var Response = await fetch("https://fakestoreapi.com/products");
-          var ProductData = await Response.json();
-  
-          setproduct(ProductData);
-        } catch (error) {
-          console.log("Server error");
-        }
-      };
-      Products();
-    }, []);
 
 
+  // localStorage.setItem("Product",Mproducts );
+
+  // const { productList, setProductList } = useContext(ProductContext);
+
+ 
+
+  return (
+    <>
+      {/* <Product.provider value={products}>
 
 
-
-
-    console.log(products);
-    return ( <></> );
+    </Product.provider> */}
+    </>
+  );
 }
 
 export default ProductList;
+// export {Product}
