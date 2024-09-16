@@ -71,9 +71,9 @@ function Home() {
 
 
     <BestOffer/>
-    <Mobile/>
-    <MobileAccessories/>
-    <ProductList/>
+    {/* <Mobile/>
+    <MobileAccessories/> */}
+    {/* <ProductList/> */}
 
 
   </>;
