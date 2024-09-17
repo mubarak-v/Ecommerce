@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "./mobiles.css";
 import { StoreContext } from "../context/storeContext";
+import { useNavigate } from "react-router-dom";
 function Mobile() {
     const {productList,dispatch} = useContext(StoreContext);
     const mobileList = productList.filter(product => product.category === "mobile").slice(0,5);
@@ -12,6 +13,12 @@ function Mobile() {
       dispatch({ type: "ADD_TO_CART", payload: product });
   
   
+    };
+ 
+    const navigate = useNavigate()
+    const handleProductClick = (id) => {
+      navigate(`/ProductDetails/${id}`);
+      
     };
     const mobiles = mobileList.map((product) => (
 
@@ -42,10 +49,10 @@ function Mobile() {
             {product.description}
           </p>
           <p className="card-text line-through-text font-Lato cursor-pointer">
-            Price: ₹ <span>{product.price * 84}</span>
+            Price: ₹ <span>{parseInt(product.price * 84)}</span>
           </p>
           <p className="card-text offer-pirce font-Oswald font-Lato cursor-pointer">
-            Offer Price: ₹{" "}
+            Offer Price: ₹
             {parseInt(
               (product.price - (product.price / 100) * product.offer) * 84
             )}

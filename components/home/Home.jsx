@@ -18,7 +18,7 @@ function Home() {
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="components/home/assets/ad-11.webp" className="d-block w-100" alt="First slide" />
+          <img src="components/home/assets/ad-14.webp" className="d-block w-100" alt="First slide" />
         </div>
         <div className="carousel-item">
           <img src="components/home/assets/ad-12.webp" className="d-block w-100" alt="Second slide" />
@@ -42,6 +42,7 @@ function Home() {
     <BestOffer/>
     <Mobile/>
     <MobileAccessories/>
+    
    
 
 

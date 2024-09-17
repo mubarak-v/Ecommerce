@@ -8,6 +8,9 @@ import ProductDetails from "../components/ProductDetails/ProductFullData";
 import { StoreProvider } from "../components/context/storeContext";
 import NotFound from "../components/notFound/NotFound";
 import Login from "../components/login/Login";
+import AboutUs from "../components/aboutUs/AboutUs";
+import ContactUs from "../components/contactUs/ContactUs";
+import Footer from "../components/footer/Footer";
 
 function App() {
   return (
@@ -23,18 +26,13 @@ function App() {
             path="/ProductDetails/:id"
             element={<ProductDetails />}
           ></Route>
-  <Route
-            path="*"
-            element={<NotFound />}
-          ></Route>
-           <Route
-            path="login"
-            element={<Login />}
-          ></Route>
+          <Route path="*" element={<NotFound />}></Route>
+          <Route path="/about" element={<AboutUs />}></Route>
 
-          
+          <Route path="login" element={<Login />}></Route>
+          <Route path="contact" element={<ContactUs />}></Route>
         </Routes>
-        <ProductDetails />
+        <Footer/>
       </StoreProvider>
     </>
   );

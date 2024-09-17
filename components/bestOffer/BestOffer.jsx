@@ -15,8 +15,30 @@ function BestOffer() {
     
     dispatch({ type: "ADD_TO_CART", payload: product });
 
+     document.getElementById("add-to-cart").className.add = "btn-primary-green"
+    document.getElementById("add-to-cart").className.remove = "btn-primary"
+
 
   };
+
+  // const handleAddToCart = (product) => {
+  //   // Dispatch the action to add the product to the cart
+  //   dispatch({ type: "ADD_TO_CART", payload: product });
+  
+  //   // Correct way to add and remove classes
+
+  //   const button = document.getElementById("add-to-cart");
+  //   button.classList.add("btn-primary-green"); // Adds the new class
+  //   button.classList.remove("btn-primary"); // Removes the old class
+  // };
+
+
+
+// const button = (()=>{
+ 
+// })
+
+
   const navigate = useNavigate()
 
   const handleProductClick = (id) => {
@@ -27,7 +49,7 @@ function BestOffer() {
     .filter((product) => product.offer > 15)
     .slice(0, 5);
 
-  // console.log(offerMobile)
+
 
   const mobileOffer = offerProducts.map((product) => (
     <div
@@ -56,10 +78,10 @@ function BestOffer() {
             {product.description}
           </p>
           <p className="card-text line-through-text font-Lato cursor-pointer">
-            Price: ₹ <span>{product.price * 84}</span>
+            Price: ₹ <span>{parseInt(product.price * 84)}</span>
           </p>
           <p className="card-text offer-pirce font-Oswald font-Lato cursor-pointer">
-            Offer Price: ₹{" "}
+            Offer Price: ₹
             {parseInt(
               (product.price - (product.price / 100) * product.offer) * 84
             )}
@@ -72,7 +94,10 @@ function BestOffer() {
      
         <div
           onClick={() => handleAddToCart(product)}
-          className="btn btn-primary"
+          className="btn btn-primary "
+          id="add-to-cart"
+
+          
         >
           <FontAwesomeIcon icon={faCartShopping} /> Add to Cart
         </div>
