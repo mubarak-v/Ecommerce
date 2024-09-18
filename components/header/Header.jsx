@@ -2,15 +2,53 @@ import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { StoreContext } from "../context/storeContext";
+import { useContext, useState } from "react";
 
 function Header() {
-  
+  const { productList } = useContext(StoreContext);
+
+  // var searchName = ""
+  // function onchange(){
+  //   searchName = document.getElementById('search-btn').value;
+  //   console.log(searchName);
+
+  // }
+  // const search = productList.filter((p)=>p.title == searchName)
+  // console.log(search);
+
+  // onchange
+
+  // const [searchName, setSearchName] = useState("");
+  // const [filteredProducts, setFilteredProducts] = useState([]);
+
+  // const handleInputChange = (event) => {
+  //   const searchValue = event.target.value;
+  //   setSearchName(searchValue);
+
+  //   const filtered = productList.filter((p) =>
+  //     p.title.toLowerCase().includes(searchValue.toLowerCase())
+  //   );
+  //   setFilteredProducts(filtered);
+  //   te;
+
+  //   console.log(filtered, searchName);
+
+  //   const map = filtered.map((p) => {});
+  // };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg ">
         <div id="nav-bar-container" className="container-fluid">
-          <a href="/"> <img id="header-logo" src="components/header/img/DDLOGO.jpg" alt="" /> </a>
-         
+          <a href="/">
+            {" "}
+            <img
+              id="header-logo"
+              src="components/header/img/DDLOGO.jpg"
+              alt=""
+            />{" "}
+          </a>
 
           <form id="search" className="d-flex" role="search">
             <input
@@ -24,7 +62,7 @@ function Header() {
               Search
             </button>
           </form>
-          {/* <a className="navbar-brand" href="#">Navbar</a> */}
+
           <button
             className="navbar-toggler"
             type="button"
@@ -63,7 +101,7 @@ function Header() {
                 </a>
               </li>
             </ul>
-            {/* <button id="back-btn" className="btn custom-button">Back</button> */}
+
           </div>
         </div>
       </nav>

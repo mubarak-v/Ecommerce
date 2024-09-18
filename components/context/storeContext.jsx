@@ -3,14 +3,11 @@ import { createContext, useEffect, useReducer, useState } from "react";
 const StoreContext = createContext();
 const initialState = {
   cart: JSON.parse(localStorage.getItem("cart")) || [],
-  
 };
 
 const cartReducer = (state, action) => {
   switch (action.type) {
-    
-    case "ADD_TO_CART":
-    {
+    case "ADD_TO_CART": {
       let alreadyAdded = false;
       let newcart = [];
       state.cart.forEach((item) => {
@@ -19,36 +16,28 @@ const cartReducer = (state, action) => {
           item.quantity++;
         }
         newcart.push(item);
-
-       
       });
       if (!alreadyAdded) {
-        newcart.push({...action.payload, quantity: 1 });
+        newcart.push({ ...action.payload, quantity: 1 });
       }
       return {
-
         cart: newcart,
       };
-
     }
-     
-    case "REMOVE_FROM_CART":
 
-
-    { let newcart = []
-    state.cart.forEach(item => {
-      if(item.id !== action.payload){
-        newcart.push(item)
-      }
-    })
-
-
-
+    case "REMOVE_FROM_CART": {
+      let newcart = [];
+      state.cart.forEach((item) => {
+        if (item.id !== action.payload) {
+          newcart.push(item);
+        }
+      });
 
       return {
         cart: newcart,
-      }; }
-   
+      };
+    }
+
     default:
       return state;
   }
@@ -56,7 +45,7 @@ const cartReducer = (state, action) => {
 
 const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
-const [productList, setProductList] = useState([
+  const [productList, setProductList] = useState([
     {
       id: 1,
       title: "iPhone 13 Pro",
@@ -77,7 +66,7 @@ const [productList, setProductList] = useState([
       category: "mobile",
       image: "/images/Samsung Galaxy S21 Ultra.jpg",
       rating: { rate: 4.7, count: 1280 },
-      offer: 25,
+      offer: 10,
     },
     {
       id: 3,
@@ -88,7 +77,7 @@ const [productList, setProductList] = useState([
       category: "mobile",
       image: "/images/Google Pixel 6 Pro.jpg",
       rating: { rate: 4.6, count: 890 },
-      offer: 30,
+      offer: 12,
     },
     {
       id: 4,
@@ -110,7 +99,7 @@ const [productList, setProductList] = useState([
       category: "mobile",
       image: "/images/Xiaomi Mi 11.webp",
       rating: { rate: 4.4, count: 650 },
-      offer: 26,
+      offer: 20,
     },
     {
       id: 6,
@@ -121,7 +110,7 @@ const [productList, setProductList] = useState([
       category: "mobile accessory",
       image: "/images/AirPods Pro.jpg",
       rating: { rate: 4.7, count: 2100 },
-      offer: 35,
+      offer: 5,
     },
     {
       id: 7,
@@ -141,10 +130,9 @@ const [productList, setProductList] = useState([
       description:
         "26800mAh capacity, charges most phones over 6 times, 3 USB output ports, PowerIQ and VoltageBoost technology",
       category: "mobile accessory",
-      image:
-        "/images/Anker PowerCore 26800 Portable Charger.jpg",
+      image: "/images/Anker PowerCore 26800 Portable Charger.jpg",
       rating: { rate: 4.8, count: 3200 },
-      offer: 25,
+      offer: 12,
     },
     {
       id: 9,
@@ -155,7 +143,7 @@ const [productList, setProductList] = useState([
       category: "mobile accessory",
       image: "/images/PopSockets PopGrip.jpg",
       rating: { rate: 4.6, count: 5500 },
-      offer: 30,
+      offer: 5,
     },
     {
       id: 10,
@@ -164,8 +152,7 @@ const [productList, setProductList] = useState([
       description:
         "10W fast charging, Qi-certified, compatible with iPhone and Android devices, LED indicator",
       category: "mobile accessory",
-      image:
-        "/images/Belkin Boost Up Wireless Charging Pad.jpg",
+      image: "/images/Belkin Boost Up Wireless Charging Pad.jpg",
       rating: { rate: 4.4, count: 980 },
       offer: 10,
     },
@@ -198,8 +185,7 @@ const [productList, setProductList] = useState([
       description:
         "Industry-leading noise cancellation, 30-hour battery life, Touch Sensor controls, Speak-to-chat technology",
       category: "mobile accessory",
-      image:
-        "/images/Sony WH-1000XM4 Wireless Headphones.jpg",
+      image: "/images/Sony WH-1000XM4 Wireless Headphones.jpg",
       rating: { rate: 4.8, count: 1890 },
       offer: 40,
     },
@@ -243,8 +229,7 @@ const [productList, setProductList] = useState([
       description:
         "Active Noise Cancellation, Up to 24 hours battery life with charging case, 4-microphone technology, IP55-rated",
       category: "mobile accessory",
-      image:
-        "/images/Jabra Elite 75t True Wireless Earbuds.jpg",
+      image: "/images/Jabra Elite 75t True Wireless Earbuds.jpg",
       rating: { rate: 4.5, count: 1670 },
       offer: 5,
     },
@@ -299,8 +284,7 @@ const [productList, setProductList] = useState([
       description:
         "Universal mobile gaming controller, Low latency USB-C connection, Pass-through charging, Ergonomic design",
       category: "mobile accessory",
-      image:
-        "/images/Razer Kishi Mobile Game Controller.jpg",
+      image: "/images/Razer Kishi Mobile Game Controller.jpg",
       rating: { rate: 4.5, count: 720 },
       offer: 18,
     },
@@ -324,7 +308,7 @@ const [productList, setProductList] = useState([
       category: "mobile accessory",
       image: "/images/Anker Nano II 65W GaN Charger.jpg",
       rating: { rate: 4.7, count: 1350 },
-      offer: 20,
+      offer: 12,
     },
     {
       id: 25,
@@ -401,7 +385,7 @@ const [productList, setProductList] = useState([
       category: "mobile accessory",
       image: "/images/Anker PowerWave Stand.jpg",
       rating: { rate: 4.5, count: 2300 },
-      offer: "25 ",
+      offer: 5,
     },
     {
       id: 32,
@@ -465,8 +449,7 @@ const [productList, setProductList] = useState([
       description:
         "Targeted Active Noise Cancelling, PureNote driver technology, Up to 26 hours playtime, Wireless charging",
       category: "mobile accessory",
-      image:
-        "/images/Anker Soundcore Liberty Air 2 Pro.jpg",
+      image: "/images/Anker Soundcore Liberty Air 2 Pro.jpg",
       rating: { rate: 4.5, count: 1650 },
       offer: 20,
     },
@@ -532,8 +515,7 @@ const [productList, setProductList] = useState([
       description:
         "Multi-device keyboard, integrated cradle, Easy-Switch dial for 3 devices, 2-year battery life",
       category: "mobile accessory",
-      image:
-        "/images/Logitech K480 Bluetooth Keyboard.jpg",
+      image: "/images/Logitech K480 Bluetooth Keyboard.jpg",
       rating: { rate: 4.5, count: 2100 },
       offer: 15,
     },
@@ -555,8 +537,7 @@ const [productList, setProductList] = useState([
       description:
         "Charges iPhone, AirPods, and Apple Watch simultaneously, Qi-certified, 7.5W fast wireless charging",
       category: "mobile accessory",
-      image:
-        "/images/Mophie 3-in-1 Wireless Charging Pad].jpg",
+      image: "/images/Mophie 3-in-1 Wireless Charging Pad].jpg",
       rating: { rate: 4.6, count: 870 },
       offer: 20,
     },
@@ -600,8 +581,7 @@ const [productList, setProductList] = useState([
       description:
         "25600mAh capacity, 87W USB-C PD output, charges laptops, tablets, and phones, trickle-charging mode",
       category: "mobile accessory",
-      image:
-        "/images/Anker PowerCore III Elite 25600 87W.jpg",
+      image: "/images/Anker PowerCore III Elite 25600 87W.jpg",
       rating: { rate: 4.8, count: 1100 },
       offer: 15,
     },
@@ -616,27 +596,17 @@ const [productList, setProductList] = useState([
       rating: { rate: 4.5, count: 2200 },
       offer: 18,
     },
-  ]
-
-
-
-    
-)
-
+  ]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
 
   return (
-    <StoreContext.Provider value={{ cart: state.cart, dispatch,productList }}>
+    <StoreContext.Provider value={{ cart: state.cart, dispatch, productList }}>
       {children}
     </StoreContext.Provider>
   );
 };
 
 export { StoreContext, StoreProvider };
-
-
-
-

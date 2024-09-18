@@ -44,8 +44,9 @@ function ProductFullData() {
             <p className="font-Nunito-400" style={{fontSize:"22px"}}>{produtIdFileter.description}</p>
 
             <div className="price">₹{parseInt(((produtIdFileter.price)-(((produtIdFileter.price)/100)*produtIdFileter.offer))*84)}</div>
-            <p>d</p>
+          
             <div className="old-price">₹{parseInt((produtIdFileter.price)*84)}</div> 
+            <h4 id="Rating" className="font-Nunito"> Rating:{produtIdFileter.rating.rate} </h4>
            
 
             <div className="mb-3">

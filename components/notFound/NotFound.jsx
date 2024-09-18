@@ -7,19 +7,17 @@ function NotFound() {
     navigate("/");
   };
   return (
+    <div className="container-a">
+      <h1 className="notfound-h1 ">404</h1>
+      <p className="not-found">Not Found</p>
+      <p className="message">
+        The resource requested could not be found on this server!
+      </p>
 
-      <div className="container-a">
-        <h1 className="notfound-h1 ">404</h1>
-        <p className="not-found">Not Found</p>
-        <p className="message">
-          The resource requested could not be found on this server!
-        </p>
-
-        <button onClick={handleClick} className="btn btn-danger btn-large">
-          Home
-        </button>
-      </div>
- 
+      <button onClick={handleClick} className="btn btn-danger btn-large">
+        Home
+      </button>
+    </div>
   );
 }
 

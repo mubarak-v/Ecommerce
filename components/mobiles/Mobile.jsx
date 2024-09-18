@@ -1,4 +1,3 @@
-
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
@@ -6,24 +5,21 @@ import "./mobiles.css";
 import { StoreContext } from "../context/storeContext";
 import { useNavigate } from "react-router-dom";
 function Mobile() {
-    const {productList,dispatch} = useContext(StoreContext);
-    const mobileList = productList.filter(product => product.category === "mobile").slice(0,5);
+  const { productList, dispatch } = useContext(StoreContext);
+  const mobileList = productList
+    .filter((product) => product.category === "mobile")
+    .slice(0, 5);
 
-    const handleAddToCart = (product) => {
-      dispatch({ type: "ADD_TO_CART", payload: product });
-  
-  
-    };
- 
-    const navigate = useNavigate()
-    const handleProductClick = (id) => {
-      navigate(`/ProductDetails/${id}`);
-      
-    };
-    const mobiles = mobileList.map((product) => (
+  const handleAddToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
 
-
-      <div
+  const navigate = useNavigate();
+  const handleProductClick = (id) => {
+    navigate(`/ProductDetails/${id}`);
+  };
+  const mobiles = mobileList.map((product) => (
+    <div
       key={product.id}
       className="card text-center position-relative tramistion"
       style={{ width: "18rem" }}
@@ -36,7 +32,6 @@ function Mobile() {
           style={{ width: "50%" }}
         />
 
-     
         <div className="offer-percentage offer-badge position-absolute rounded-circle bg-danger text-white d-flex justify-content-center align-items-center">
           <span>{product.offer}% OFF</span>
         </div>
@@ -60,7 +55,6 @@ function Mobile() {
         </div>
       </div>
       <div style={{ marginBottom: "20px" }}>
-      
         <div
           onClick={() => handleAddToCart(product)}
           className="btn btn-primary"
@@ -69,26 +63,22 @@ function Mobile() {
         </div>
       </div>
     </div>
-    
-      ))
-    return (<>
-
-
-<div className="container-fluid" style={{marginTop:"30px",display:"flex"}}> 
-    <div><h1 id="offer-tag" className="font-Oswald">MOBILE PHONES</h1> <dir className="mobile"  >
-       
-
-    {mobiles}
-   
-       </dir></div>
-       
-        
-     
-          
-          </div>
-    
-    
-    </>  );
+  ));
+  return (
+    <>
+      <div
+        className="container-fluid"
+        style={{ marginTop: "30px", display: "flex" }}
+      >
+        <div>
+          <h1 id="offer-tag" className="font-Oswald">
+            MOBILE PHONES
+          </h1>{" "}
+          <dir className="mobile">{mobiles}</dir>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Mobile;

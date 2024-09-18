@@ -1,0 +1,181 @@
+
+
+.product-card {
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.offer-percentage {
+   width: 50px;
+   height: 50px;
+   top: 5px;
+   right: 5px;
+   font-size: 12px;
+   font-weight: 600;
+
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.tramistion:hover
+{
+    transform: scale(1.03);
+}
+
+.card-image {
+    height:160px !important;
+    object-fit: contain;
+}
+
+.mobile{
+
+    width: 100%;
+   
+    display: flex;
+    flex-wrap: wrap;
+}
+#offer-tag{
+    margin-left: 90px;
+}
+.font-Oswald{ font-family: "Oswald", sans-serif;
+
+    font-weight: weight;
+    }
+
+.card-title{
+    height: 18px;
+    overflow: hidden;
+    font-weight: 900;
+}
+.card-text-description{
+   height: 50px;
+    overflow: hidden;
+
+}
+.line-through-text{
+    text-decoration: line-through;
+    font-size: 12px;
+}.offer-pirce{
+    font-size: 14px;
+    margin-top: -9px !important;
+}
+.love-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.font-roboto{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+.font-Lato{
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+}
+
+
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #36a;
+    margin: 10px 0;
+}
+
+.description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.colors {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.color {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.color1 {
+    background-color: #6666ff;
+}
+
+.color2 {
+    background-color: #99ccff;
+}
+
+.color3 {
+    background-color: #6699ff;
+}
+
+.color4 {
+    background-color: #003366;
+}
+
+.cart-btn {
+    background-color: #36a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#cardicon{
+    margin-right: 5px;
+}
+
+.cart-btn:hover {
+    background-color: #2d86c1;
+}
+
+
+
+
+
+
+
+.card{
+    border-radius: 15px !important;
+    margin-left: 50px;
+    margin-top: 50px;
+  
+  
+}
+.card-body{
+    justify-content: center !important;
+    align-items: center !important;
+}
+.card-body a{
+    background-color: #003366;
+    background-color: #36a;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}

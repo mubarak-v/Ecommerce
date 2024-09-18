@@ -1,35 +1,21 @@
-import { useContext, useEffect, Link, useState } from "react";
-
-import "./bestOffer.css";
-
+import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-
+import "./productList.css";
 import { StoreContext } from "../context/storeContext";
 import { useNavigate } from "react-router-dom";
-
-function BestOffer() {
-  const [productAdded, setProductAdded] = useState();
-
-  const { dispatch, productList } = useContext(StoreContext);
+function Mobile() {
+  const { productList, dispatch } = useContext(StoreContext);
 
   const handleAddToCart = (product) => {
-    dispatch({ type: "ADD_TO_CART", payload: product });
-
-    // setProductAdded(product.id);
+    dispatch({ type: "ADD_TO_CART", paylsearchNameoad: product });
   };
 
   const navigate = useNavigate();
-
   const handleProductClick = (id) => {
     navigate(`/ProductDetails/${id}`);
   };
-
-  const offerProducts = productList
-    .filter((product) => product.offer > 15)
-    .slice(0, 5);
-
-  const mobileOffer = offerProducts.map((product) => (
+  const mobiles = productList.slice(0, 50).map((product) => (
     <div
       key={product.id}
       className="card text-center position-relative tramistion"
@@ -66,28 +52,15 @@ function BestOffer() {
         </div>
       </div>
       <div style={{ marginBottom: "20px" }}>
-        <p
-          style={{
-            marginTop: "-12px",
-            marginBottom: "3px",
-            height: "20px",
-            color: "green",
-          }}
-        >
-          {" "}
-          {productAdded === product.id ? "✔ successfully " : ""}{" "}
-        </p>
         <div
           onClick={() => handleAddToCart(product)}
-          className="btn btn-primary "
-          id="add-to-cart"
+          className="btn btn-primary"
         >
           <FontAwesomeIcon icon={faCartShopping} /> Add to Cart
         </div>
       </div>
     </div>
   ));
-
   return (
     <>
       <div
@@ -96,13 +69,13 @@ function BestOffer() {
       >
         <div>
           <h1 id="offer-tag" className="font-Oswald">
-            OFFER ZONE
+            PRODUCTS
           </h1>{" "}
-          <dir className="products">{mobileOffer}</dir>
+          <dir className="mobile">{mobiles}</dir>
         </div>
       </div>
     </>
   );
 }
 
-export default BestOffer;
+export default Mobile;

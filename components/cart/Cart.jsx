@@ -52,7 +52,7 @@ function Cart() {
     <>
       <div className="container my-5">
         <h2 className="cart-title">Cart</h2>
-        {/* <p>Items are reserved for 60 minutes</p> */}
+       
         {cartItems}
         <div className="row">
           <div className="col-md-12 text-end subtotal">
