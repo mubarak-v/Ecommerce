@@ -4,63 +4,41 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "./productList.css";
 import { StoreContext } from "../context/storeContext";
 import { useNavigate } from "react-router-dom";
+
+import ProductCard from "../productCard/ProductCard";
 function Mobile() {
-  const { productList, dispatch } = useContext(StoreContext);
+  const { productList, dispatch, cart } = useContext(StoreContext);
 
   const handleAddToCart = (product) => {
-    dispatch({ type: "ADD_TO_CART", paylsearchNameoad: product });
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
+
+  const handleRemoveToCart = (id) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: id });
   };
 
   const navigate = useNavigate();
   const handleProductClick = (id) => {
     navigate(`/ProductDetails/${id}`);
   };
-  const mobiles = productList.slice(0, 50).map((product) => (
-    <div
-      key={product.id}
-      className="card text-center position-relative tramistion"
-      style={{ width: "18rem" }}
-    >
-      <div onClick={() => handleProductClick(product.id)}>
-        <img
-          src={product.image}
-          className="card-img-top mx-auto card-image cursor-pointer"
-          alt={product.title}
-          style={{ width: "50%" }}
-        />
 
-        <div className="offer-percentage offer-badge position-absolute rounded-circle bg-danger text-white d-flex justify-content-center align-items-center">
-          <span>{product.offer}% OFF</span>
-        </div>
+  const allProducts = productList.map((product) => {
+    let isInCart = false;
+    const productId = product.id;
+    isInCart = cart.some((cartItem) => cartItem.id === productId);
 
-        <div className="card-body">
-          <h5 className="card-title font-Oswald cursor-pointer">
-            {product.title}
-          </h5>
-          <p className="cursor-pointer card-text card-text-description font-roboto">
-            {product.description}
-          </p>
-          <p className="card-text line-through-text font-Lato cursor-pointer">
-            Price: ₹ <span>{parseInt(product.price * 84)}</span>
-          </p>
-          <p className="card-text offer-pirce font-Oswald font-Lato cursor-pointer">
-            Offer Price: ₹
-            {parseInt(
-              (product.price - (product.price / 100) * product.offer) * 84
-            )}
-          </p>
-        </div>
-      </div>
-      <div style={{ marginBottom: "20px" }}>
-        <div
-          onClick={() => handleAddToCart(product)}
-          className="btn btn-primary"
-        >
-          <FontAwesomeIcon icon={faCartShopping} /> Add to Cart
-        </div>
-      </div>
-    </div>
-  ));
+    return (
+      <ProductCard
+        key={product.id}
+        product={product}
+        handleProductClick={handleProductClick}
+        handleAddToCart={handleAddToCart}
+        isInCart={isInCart}
+        handleRemoveToCart={handleRemoveToCart}
+      />
+    );
+  });
+
   return (
     <>
       <div
@@ -71,7 +49,7 @@ function Mobile() {
           <h1 id="offer-tag" className="font-Oswald">
             PRODUCTS
           </h1>{" "}
-          <dir className="mobile">{mobiles}</dir>
+          <dir className="mobile">{allProducts}</dir>
         </div>
       </div>
     </>

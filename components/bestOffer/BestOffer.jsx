@@ -4,7 +4,7 @@ import "./bestOffer.css";
 
 import { StoreContext } from "../context/storeContext";
 import { useNavigate } from "react-router-dom";
-import ProductCardList from "../productCardList/ProductCardList";
+import ProductCard from "../productCard/ProductCard";
 
 function BestOffer() {
   const { dispatch, productList, cart } = useContext(StoreContext);
@@ -30,7 +30,7 @@ function BestOffer() {
     isInCart = cart.some((cartItem) => cartItem.id === productId);
 
     return (
-      <ProductCardList
+      <ProductCard
         key={product.id}
         product={product}
         handleProductClick={handleProductClick}
