@@ -9,6 +9,12 @@ function Cart() {
   const handleRemoveToCart = (id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   };
+  const handleAddToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
+
+ 
+
 
   useEffect(() => {
     let total = 0;
@@ -24,8 +30,7 @@ function Cart() {
       </div>
     );
   }
-
-
+ 
 
   const cartItems = cart.map((p) => (
     <div key={p.id} className="cart-item row align-items-center">
@@ -35,8 +40,10 @@ function Cart() {
       <div className="col-md-6 item-details">
         <p> {p.title} </p>
         <span className="text-muted"> Qty: {p.quantity} </span>
+        <div style={{marginTop:"5px" }}> <button className="btn btn-success">+</button> <button className="btn btn-danger">-</button> </div>
       </div>
       <div className="col-md-2 text-end item-price"> {p.price} </div>
+  
       <div className="col-md-2 text-end">
         <button
           onClick={() => handleRemoveToCart(p.id)}
@@ -52,7 +59,7 @@ function Cart() {
     <>
       <div className="container my-5">
         <h2 className="cart-title">Cart</h2>
-       
+
         {cartItems}
         <div className="row">
           <div className="col-md-12 text-end subtotal">

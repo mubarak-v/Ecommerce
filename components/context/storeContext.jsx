@@ -24,6 +24,7 @@ const cartReducer = (state, action) => {
         cart: newcart,
       };
     }
+    
 
     case "REMOVE_FROM_CART": {
       let newcart = [];
@@ -37,6 +38,7 @@ const cartReducer = (state, action) => {
         cart: newcart,
       };
     }
+
 
     default:
       return state;
